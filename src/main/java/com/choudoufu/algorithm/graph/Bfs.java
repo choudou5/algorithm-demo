@@ -1,6 +1,6 @@
 package com.choudoufu.algorithm.graph;
 
-import com.choudoufu.algorithm.graph.entity.Location;
+import com.choudoufu.algorithm.entity.Location;
 
 import java.io.Serializable;
 import java.util.ArrayList;

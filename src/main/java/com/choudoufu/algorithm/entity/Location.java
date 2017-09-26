@@ -1,4 +1,4 @@
-package com.choudoufu.algorithm.graph.entity;
+package com.choudoufu.algorithm.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
