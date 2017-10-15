@@ -15,21 +15,26 @@ public class Location implements Serializable{
 	private String code;	//编码
 	
 	private String pCode; //父编码
-	
-	private List<Location> neighbors = new ArrayList<Location>();	//邻居
-	
+
+
 	public Location(String name, String code) {
 		super();
 		this.name = name;
 		this.code = code;
 	}
 	
-	public Location(String name, String code, String pCode, List<Location> neighbors) {
+	public Location(String name, String code, String pCode) {
 		super();
 		this.name = name;
 		this.code = code;
 		this.pCode = pCode;
-		addNeighbor(neighbors);
+	}
+
+	public Location(Location location, String pCode) {
+		super();
+		this.name = location.getName();
+		this.code = location.getCode();
+		this.pCode = pCode;
 	}
 
 	public String getName() {
@@ -52,21 +57,6 @@ public class Location implements Serializable{
 	public void setpCode(String pCode) {
 		this.pCode = pCode;
 	}
-
-	public List<Location> getNeighbors() {
-		return neighbors;
-	}
-
-	public Location addNeighbor(Location e) {
-		//堆存储缘故 所以新new个
-		this.neighbors.add(new Location(e.getName(), e.getCode(), this.code, e.getNeighbors()));
-		return this;
-	}
-	
-	private void addNeighbor(List<Location> neighbors) {
-		this.neighbors.addAll(neighbors);
-	}
-	
 
 	@Override
 	public String toString() {

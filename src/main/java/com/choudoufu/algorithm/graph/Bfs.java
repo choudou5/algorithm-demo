@@ -1,11 +1,12 @@
 package com.choudoufu.algorithm.graph;
 
+import com.choudoufu.algorithm.entity.ListBuilder;
 import com.choudoufu.algorithm.entity.Location;
+import org.apache.commons.beanutils.BeanUtils;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Queue;
+import java.lang.reflect.InvocationTargetException;
+import java.util.*;
 import java.util.concurrent.ArrayBlockingQueue;
 
 /**
@@ -26,16 +27,17 @@ import java.util.concurrent.ArrayBlockingQueue;
 public class Bfs {
 	
 	public static void main(String[] args) {
+		init();
 		bfSearch("cs", "gz");
 	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private static void bfSearch(String srcCode, String targetCode){
+	public static void bfSearch(String srcCode, String targetCode){
 		List<Location> neighbors = getNeighbors(srcCode);//查找出发地 的邻居
 		Queue<Location> queue = new ArrayBlockingQueue<Location>(20);
 		queue.addAll(neighbors);	//将邻居添加到 队列
-		List checked = new ArrayList();//已检查过的
-		checked.add(srcCode);
+		List<Location> checked = new ArrayList();//已检查过的
+		checked.add(getLocation(srcCode));
 		while(!queue.isEmpty()){
 			Location location = queue.poll();
 			String locaCode = location.getCode(); 
@@ -45,7 +47,7 @@ public class Bfs {
 					System.out.println("找到目标地址了.");
 					break;
 				}else{
-					queue.addAll(location.getNeighbors());//将其邻居加入到 队列尾
+					queue.addAll(getNeighbors(location.getCode()));//将其邻居加入到 队列尾
 				}
 			}
 		}
@@ -57,15 +59,12 @@ public class Bfs {
 		String pCode = lastPCode;
 		System.out.print(srcCode+"--->");
 		while(true){
-			for (Object t : checked) {
-				if(t instanceof Location){
-					Location loc = (Location)t;
-					if(last.getpCode().equals(loc.getCode())){
-						System.out.print(loc.getName()+"--->");
-						pCode = loc.getpCode();
-						lastPCode = loc.getpCode();
-						break;
-					}
+			for (Location loc : checked) {
+				if(last.getpCode().equals(loc.getCode())){
+					System.out.print(loc.getName()+"--->");
+					pCode = loc.getpCode();
+					lastPCode = loc.getpCode();
+					break;
 				}
 			}
 			if(pCode.equals(lastPCode)){
@@ -90,46 +89,67 @@ public class Bfs {
 		return false;
 		
 	}
-	
+
+	private static List<Location> locationList = null;
+	private static Map<String, List> neighbor_Map = new HashMap<>();
+
 	/**
-	 * 获取邻居
-	 * @param code
+	 * 初始化 列表
 	 * @return
 	 */
-	private static List<Location> getNeighbors(String code){
-		List<Location> locations = getLocations();
-		for (Location location : locations) {
-			if(location.getCode().equals(code))
-				return location.getNeighbors();
-		}
-		return null;
-	}
-	
-	/**
-	 * 获取地址 列表
-	 * @return
-	 */
-	private static List<Location> getLocations(){
+	private static void init(){
 		List<Location> list = new ArrayList<Location>(20);
 		Location cs = new Location("长沙", "cs");
 		Location yz = new Location("永州", "yz");
 		Location gl = new Location("桂林", "gl");
 		Location sg = new Location("韶关", "sg");
 		Location gz = new Location("广州", "gz");
-		
+
 		//添加邻居
-		yz.addNeighbor(cs).addNeighbor(gl);
-		sg.addNeighbor(cs).addNeighbor(gz);
-		gl.addNeighbor(yz).addNeighbor(gz);
-		gz.addNeighbor(gl).addNeighbor(sg);
-		cs.addNeighbor(yz).addNeighbor(sg);
-		
-		list.add(cs);
-		list.add(yz);
-		list.add(gl);
-		list.add(sg);
-		list.add(gz);
-		return list;
+		addNeighbor(cs, yz, sg);
+		addNeighbor(yz, cs, gl);
+		addNeighbor(sg, yz, gz);
+		addNeighbor(gl, yz, gz);
+		addNeighbor(gz, gl, sg);
+		addNeighbor(gz, gl, sg);
+
+		locationList = new ListBuilder().a(cs).a(yz).a(gl).a(sg).a(gz).getList();
 	}
-	
+
+	/**
+	 * 获取地址 列表
+	 * @return
+	 */
+	private static List<Location> getLocations(){
+		return locationList;
+	}
+
+	/**
+	 * 获取地址
+	 * @return
+	 */
+	private static Location getLocation(String code){
+		for (Location location : locationList) {
+			if(location.getCode().equals(code))
+				return location;
+		}
+		return null;
+	}
+
+	private static void addNeighbor(Location location, Location ... neighbors){
+		List<Location> neighborList = new ArrayList<>(neighbors.length);
+		for (Location neighbor : neighbors) {
+			neighborList.add(new Location(neighbor, location.getCode()));
+		}
+		neighbor_Map.put(location.getCode(), neighborList);
+	}
+
+	/**
+	 * 获取邻居
+	 * @param locationCode
+	 * @return
+	 */
+	private static List<Location> getNeighbors(String locationCode){
+		return neighbor_Map.get(locationCode);
+	}
 }
