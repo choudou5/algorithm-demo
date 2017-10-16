@@ -1,0 +1,54 @@
+<div class="xlbodybox" id="infocontent">
+			   		<table width="100%" border="0" cellspacing="0" cellpadding="0" id="infotablecontent">
+
+						  <tbody><tr>
+						    <th width="12%" align="center" valign="middle" bgcolor="#f6f6f6" scope="col">招标编号</th>
+						    <td width="21%" align="center" valign="middle" scope="col">【正式会员登录后可浏览】</td>
+						    <th width="12%" align="center" valign="middle" bgcolor="#F6F6F6" scope="col">采购业主</th>
+						    <td width="21%" align="center" valign="middle" scope="col">【正式会员登录后可浏览】<br></td>
+						    <th width="12%" align="center" valign="middle" bgcolor="#F6F6F6" scope="col">招标公司</th>
+						    <td width="22%" align="center" valign="middle" scope="col">【正式会员登录后可浏览】</td>
+						  </tr>
+
+						  <tr>
+						    <th align="center" valign="middle" bgcolor="#f6f6f6">联系人</th>
+						    <td align="center" valign="middle">【正式会员登录后可浏览】</td>
+						    <th align="center" valign="middle" bgcolor="#F6F6F6">联系电话</th>
+						    <td align="center" valign="middle">【正式会员登录后可浏览】</td>
+						    <th align="center" valign="middle" bgcolor="#F6F6F6">通讯地址</th>
+						    <td align="center" valign="middle">【正式会员登录后可浏览】</td>
+						  </tr>
+						  <tr>
+						    <th align="center" valign="middle" bgcolor="#f6f6f6">邮政编码</th>
+						    <td align="center" valign="middle">【正式会员登录后可浏览】</td>
+						    <th align="center" valign="middle" bgcolor="#F6F6F6">截止日期</th>
+						    <td align="center" valign="middle">【正式会员登录后可浏览】</td>
+						    <th align="center" valign="middle" bgcolor="#F6F6F6"></th>
+						    <td align="center" valign="middle"></td>
+						  </tr>
+					 	</tbody></table>
+			   	 	<br>
+			   	 	<h2> 公告摘要</h2>
+			   	 	<dd style="text-align: left; FONT-SIZE: 14px;padding:10px;">
+
+							&nbsp;&nbsp;&nbsp;&nbsp;***********招标公司受业主*******委托，于2017年10月16日在中国招标网发布壶关县石坡乡卫生院医疗设备采购项目询价公告。<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;各有关单位请于2017.10.20前与公告中联系人联系，及时参与投标等相关工作，以免错失商业机会。<br>
+
+							<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;部分信息内容如下：（查看详细信息请<a href="/user/logon.jsp"><span class="red">登录</span></a>）
+						</dd>
+						<dd class="xlbodybox-gk" id="infohtmlcon">
+							 **昱鼎招标代理有限公司受***石坡乡卫生院的委托，就其卫生院医疗设备组织询价采购，欢迎符合本项目资格条件的投标人参与投标。<br> 一、项目名称和编号<br> *、项目名称：***石坡乡卫生院医疗设备采购项目<br> *、项目编号：************<br> 二、项目内容：<br> *、本采购项目共一包，供应商对所报价包内项目必须完全响应询价文件要求<br> *、采购内容：<br> 医疗设备一批(详见询价文件)。<br> *、采购范围：货物的供应、包装、运输、装卸及售后服务等，具体采购范围、报价范围及所应达到的具体要求以询价文件中商务、技术和服务的相应规定为准。<br> *、预算金额：******.**元<br> *、交检验结果地点：***石坡乡卫生院<br> 三、投标人资格条件<br> *、本次采购要求投标人具备中华人民**国政府采购法第二十二条规定的条件：<br> (*)在中国境内登记注册，具有独立承担民事责任的能力;<br> (*)具有良好的商业信誉和健全的财务会计制度;<br> (*)具有履行合同所必需的设备和专业技术能力;<br> (*)具有依法缴纳税收和社会保障资金的良好记录;<br> (*)参加此项采购活动前三年内,在经营活动中没有重大违法记录;<br> (*)法律、行政法规规定的其他条件;<br> *、本次采购不接受联合体投标。<br> 四、报名时携带材料：<br> 营业执照副本、税务登记证副本、组织机构代码证副本、(三证合一除外)，基本开户许可证、医疗器械经营许可证或医疗器械生产许可证、上年度财务状况报告、近三个月纳税凭证、最后一次缴纳社保金的凭证、法定代表人身份证明、法人授权委托书、法定代表人和委托投标人身份证、提供近期(投标截止日期前**天内有效)检察机关出具的行贿犯罪档案查询结果告知函。<br> 报名时须携带上述材料的原件及复印件两套，资质的符合性审定以询价小组最终认定为准。<br> 五、询价文件获取的时间及地点<br> *、通过上述报名者请于：****年**月**日至****年**月**日(**时间*:**-**:**,**：**-**:**法定公休日、节假日除外)在**昱鼎招标代理有限公司持本单位介绍信购买询价文件;<br> *、地点：*****西街潞华二区*单元***室<br> *、询价文件售价人民币***元，现金支付，售后不退。<br> 六、询价时间及地点(响应文件递交截止时间及地点)<br> *、时间：****年**月**日下午**:**，以书面形式密封递交。<br> *、地点：*****西街潞华二区*单元***室<br> *、逾期送达的或者未送达指定地点的投标文件招标人不予受理。<br> 七、发布公告的媒体<br> 本次招标公告在《中国**政府采购网》发布<br> 八、联系方式<br> 采购单位：***石坡乡卫生院<br> 地址：***石坡乡<br> 联系人：郭先生<br> 联系电话：***********<br> 采购代理机构：**昱鼎招标代理有限公司<br> 地址：*****西街潞华二区*单元***室<br> 联系人：王先生<br> 联系电话：****-*******<br>
+						</dd>
+
+			   	 	<!--dd style="text-align: left; FONT-SIZE: 14px;padding:10px;">
+							&nbsp;&nbsp;&nbsp;&nbsp;备注:<br>
+							&nbsp;&nbsp;&nbsp;&nbsp; **昱鼎招标代理有限公司受***石坡乡卫生院的委托，就其卫生院医疗设备组织询价采购，欢迎符合本项目资格条件的投标人参与投标。
+ 一、项目名称和编号
+ *、项目名称：***石坡乡卫生院医疗设备采购项目
+ *、项目编号：************
+ 二、项目内容：
+ *、本采购项目共一包，供应商对所报价<br>&nbsp;
+			   	 	</dd-->
+
+			   	</div>

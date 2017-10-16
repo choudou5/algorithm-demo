@@ -1,5 +1,7 @@
 package com.choudoufu.algorithm.ga;
 
+import com.choudoufu.algorithm.BaseClient;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -12,7 +14,7 @@ import java.util.Random;
  * 遗传算法在走迷宫游戏的应用-遗传算法工具类
  * Created by xuhaowende on 2017/10/14.
  */
-public class GaMaze {
+public class GaMaze extends BaseClient{
 
     // 迷宫出入口标记
     public static final int MAZE_ENTRANCE_POS = 1;
@@ -451,7 +453,7 @@ public class GaMaze {
 
     public static void main(String[] args) {
         //迷宫地图文件数据地址
-        String filePath = GaMaze.class.getResource("/data/ga/mapData.txt").getPath();
+        String filePath = baseDataPath+ "ga/mapData.txt";
         System.out.println(filePath);
         //初始个体数量
         int initSetsNum = 4;
