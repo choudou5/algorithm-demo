@@ -1,18 +1,16 @@
 package com.choudoufu.algorithm.tree.trie;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * 
- * 
- * 
  * @author lyq
- * 
- * 
+ *
  */
-public class TreeNode {
+public class TreeNode implements Serializable{
+
 	//节点的值
-	String value;
+	final String value;
 	//节点孩子节点
 	ArrayList<TreeNode> childNodes;
 

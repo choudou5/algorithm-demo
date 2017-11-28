@@ -1,5 +1,8 @@
 package com.choudoufu.algorithm.tree.trie;
 
+import com.alibaba.fastjson.JSON;
+import com.choudoufu.algorithm.hash.consistent.Node;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -146,7 +149,6 @@ public class TrieTool {
 				break;
 			}
 		}
-
 		if (childNodes.size() == 0) {
 			childNodes.add(node);
 		} else if (childNodes.size() == 1) {
@@ -159,7 +161,6 @@ public class TrieTool {
 		} else {
 			childNodes.add(insertIndex, node);
 		}
-
 	}
 
 }

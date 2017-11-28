@@ -1,5 +1,6 @@
 package com.choudoufu.algorithm;
 
+import com.alibaba.fastjson.JSON;
 import com.choudoufu.algorithm.category.randomforest.Client;
 import org.apache.commons.io.FileUtils;
 
@@ -44,6 +45,10 @@ public class BaseClient {
 
     protected static void printTime(long begin, long end){
         System.out.println("time:"+(end-begin));
+    }
+
+    protected static void toJsonPrint(Object object){
+        System.out.println(JSON.toJSONString(object));
     }
 
 }
