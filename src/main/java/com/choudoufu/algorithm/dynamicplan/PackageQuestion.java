@@ -15,7 +15,7 @@ public class PackageQuestion {
 
     private static List<Goods> goosList = new ArrayList<>();
 
-    static{
+    static{                                   //价格         //重量
         goosList.add(new Goods("吉他", 1500, 1));
         goosList.add(new Goods("音响", 3000, 4));
         goosList.add(new Goods("笔记本", 2000, 3));
@@ -38,11 +38,20 @@ public class PackageQuestion {
             lastGoodName = goods.getName();
         }
         //打印表格
-        System.out.println("商品问题最小化-拆单元格装载：");
+        System.out.println("问题最小化开始......");
+        System.out.println("-------------------------------------------------");
+        System.out.println(getHead("商品名")+"|"+getHead("1-价格")+" | "+getHead("2-价格")+"|"+getHead("3-价格")+" | "+getHead("4-价格  |"));
+
         for (String goodName : table.keySet()) {
             Map<Integer, Float> row = table.get(goodName);
-            System.out.println(goodName+": "+JSON.toJSONString(row));
+            System.out.println("-------------------------------------------------");
+            System.out.print(getHead(goodName));
+            for (Integer index : row.keySet()) {
+                System.out.print("| "+getHead(row.get(index)+""));
+            }
+            System.out.print("|\r\n");
         }
+        System.out.println("-------------------------------------------------");
         //输出 最佳偷取方案
         int len = table.size()-1;
         System.out.println("容量为"+packageCapacity+"包的最大装载价值："+table.get(lastGoodName).get(4)+"元");
@@ -107,4 +116,19 @@ public class PackageQuestion {
         return grid;
     }
 
+    private static String getHead(String name){
+        int len = 0;
+        char[] chars = name.toCharArray();
+        for (char c : chars) {
+            len += c>128?2:1;
+        }
+        StringBuilder sb = new StringBuilder();
+        if(8 > len){
+            int diff = 8 - len;
+            for (int i = 0; i < diff; i++) {
+                sb.append(" ");
+            }
+        }
+        return name+sb.toString();
+    }
 }
