@@ -26,8 +26,8 @@ public class GroupAvgPageExample {
         List<String> result = new ArrayList<String>();
 
         //各自类型 总数
-        int type1Total = 22;
-        int type2Total = 2;
+        int type1Total = 1;
+        int type2Total = 19;
 
         int avgPageSize = pageSize/2;
         int queryTotal = type1Total+type2Total;
@@ -35,12 +35,12 @@ public class GroupAvgPageExample {
         int queryRange = queryTotal+pageSize;
         if(pageTotal > queryRange)//超出范围--终止
             return null;
-
-        //查询类型1数据
+        //是否需要填补
         SqlPage needPad = null;
         SqlPage nextNeedPad = getNextNeedPad(type2Total, pageNo, avgPageSize);
         if(nextNeedPad != null)
             needPad = nextNeedPad;
+        //查询类型1数据
         needPad = queryDataByType(type1Total, pageTotal, pageNo, avgPageSize, result, 1, needPad);
 
         //查询类型2数据
@@ -81,8 +81,8 @@ public class GroupAvgPageExample {
             return null;
         }else{
             int blankNum = currGroupNeedTotal - currGroupTotal;//空缺
-            if(blankNum <= avgPageSize){
-                sqlPage = new SqlPage(0, blankNum-1);
+            if(blankNum < avgPageSize){
+                sqlPage = new SqlPage(currGroupNeedTotal-avgPageSize, avgPageSize-blankNum);
                 List<String> list = findList(sqlPage, groupNo);
                 if(CollectionUtils.isNotEmpty(list)) {
                     result.addAll(list);
