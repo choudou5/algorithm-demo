@@ -1,9 +1,7 @@
 package com.choudoufu.algorithm.redpacket;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * 工程文件： choudoufu.algorithm/com.choudoufu.algorithm.redpacket.Demo.java
@@ -32,6 +30,30 @@ public class Demo {
         return amountList;
     }
 
+    // 通过剪线算法获得红包（保留两位有效数字）
+    public static List<Double> generateDoublePacketsByLineCutting(int person, int money) {
+        // 定义一个treeset
+        List<Double> packets = new ArrayList<>();
+        Random random = new Random();
+        Set<Double> points = new TreeSet<>();
+        while (points.size() < person - 1) {
+            // 找到n-1个点
+            Double num = (int) Math.round(random.nextDouble() * (money - 1) * 100) / 100.0;
+            points.add(num);
+        }
+        // 记录最后一个点
+        points.add(Double.valueOf(money));
+        Double proPoint = 0d;
+        for (Double point : points) {
+            // 最后进行求值取差计算
+            Double num2 = (int) Math.round(random.nextDouble() * (point - proPoint) * 100) / 100.0;
+            packets.add(num2);
+            proPoint = point;
+        }
+        return packets;
+    }
+
+
     /**
      * 微信红包
      * @param remainSize 剩余的红包数量
@@ -56,25 +78,42 @@ public class Demo {
 
 
     public static void main(String[] args){
-        int totalAmount = 5000;
-        int count = 10;
-        double sum = 0;
-        List< Integer> amountList = divideRedPackage(totalAmount ,  count );
-        for ( Integer amount : amountList){
-            sum += amount;
-            System.out.println("抢到金额：" + new BigDecimal(amount).divide(new BigDecimal(100)));
+//        int totalAmount = 20;
+//        int count = 5;
+//        double sum = 0;
+//        List<Integer> amountList = divideRedPackage(totalAmount ,  count );
+//        for ( Integer amount : amountList){
+//            sum += amount;
+//            System.out.println("抢到金额：" + new BigDecimal(amount));
+//        }
+//        System.out.println(sum);
+//        System.out.println("--------以下为微信-------");
+//        double restAmount = totalAmount;
+//        sum = 0;
+//        for (int i = count; i > 0; i--) {
+//            double money = getRandomMoney(i, restAmount);
+//            restAmount -= money;
+//            System.out.println("抢到金额：" + new BigDecimal(money).divide(new BigDecimal(100)));
+//            sum += money;
+//        }
+//        System.out.println(sum);
+
+        // 抢红包保留两位有效数字
+//        List<Double> list = generateDoublePacketsByLineCutting(4, 20);
+//        System.out.println(list);
+        System.out.println("---------");
+        Random rd = new Random();
+        System.out.println("金额：1000, 人数：10, 平分：100");
+        float min = 200f;
+        for (int i = 0; i <5000; i++) {
+            float last = BalanceRedpacket.spilt(10, 1000).get(9);
+            if(last < min)
+                min = last;
         }
-        System.out.println(sum);
-        System.out.println("---------------");
-        double restAmount = totalAmount;
-        sum = 0;
-        for (int i = count; i > 0; i--) {
-            double money = getRandomMoney(i, restAmount);
-            restAmount -= money;
-            System.out.println("抢到金额：" + new BigDecimal(money).divide(new BigDecimal(100)));
-            sum += money;
-        }
-        System.out.println(sum);
+        System.out.println(min);
+
     }
+
+
 
 }
